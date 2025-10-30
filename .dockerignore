@@ -1,0 +1,42 @@
+# ────────────────────────────────
+#  Web Technologies 2 Course Repo
+#  Docker Build Context Exclusions
+# ────────────────────────────────
+
+# Node dependencies and build artifacts
+node_modules
+dist
+build
+coverage
+*.tsbuildinfo
+
+# Logs and runtime output
+*.log
+logs
+tmp
+temp
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+
+# Git and repo metadata
+.git
+.gitignore
+.gitattributes
+
+# Docker metadata
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# OS / IDE files
+.DS_Store
+Thumbs.db
+.vscode
+.idea
+

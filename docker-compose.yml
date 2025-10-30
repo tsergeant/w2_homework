@@ -1,0 +1,45 @@
+# ────────────────────────────────
+#  Web Technologies 2 - Common Docker Setup
+# ────────────────────────────────
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16
+    container_name: w2-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: student
+      POSTGRES_PASSWORD: devpass
+      POSTGRES_DB: w2
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - w2net
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: w2-pgadmin
+    restart: unless-stopped
+    depends_on:
+      - db
+    environment:
+      PGADMIN_DEFAULT_EMAIL: student@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    networks:
+      - w2net
+    # Optional: persistent config storage
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+
+networks:
+  w2net:
+
+volumes:
+  pgdata:
+  pgadmin-data:
+
