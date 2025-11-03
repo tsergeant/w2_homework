@@ -12,7 +12,7 @@ You’ll use **Node.js**, **Docker**, **PostgreSQL**, and **VS Code** to build a
 | **Node.js** | 20.x LTS | Includes `npm`; verify with `node -v` |
 | **Git** | Latest | Required for managing assignments |
 | **Docker Desktop** | 4.x or newer | Runs PostgreSQL and pgAdmin containers |
-| **VS Code** | Latest | Recommended IDE |
+| **VS Code** | Latest | Required IDE |
 
 ---
 
@@ -33,6 +33,15 @@ Install these extensions from the VS Code Marketplace:
 Be sure that Docker Desktop is running.
 💡 Note: You do not need a Docker Hub account to use Docker Desktop for this course.
 When prompted, click “Skip sign in.”
+
+💡 Note: PostgreSQL is the database management system we will use for our
+database and pgAdmin is a web-based interface use to connect us to PostgreSQL.
+
+The docker-compose.yml file found in the root of your repo provides the
+usernames and passwords for each of these tools. To keep things simple, go
+ahead and leave the credentials at their default settings. You will need
+to make note of the usernames and passwords because you will need them to
+connect.
 
 Open a command-line interface and navigate to your repository.
 
@@ -75,7 +84,7 @@ Use pgAdmin or `psql` to test your connection.
 
 ### Option 2: Using psql CLI
 ```bash
-docker exec -it webtech2-db psql -U student -d webtech2
+docker exec -it w2-db psql -U student -d web2db
 ```
 
 Then run:
@@ -101,7 +110,7 @@ Applications automatically read these variables when running.
 
 ## 🚀 6. Run a Test API
 
-Create a simple server in any week’s folder to verify Node + Express setup:
+Create a simple server in the hw01 folder to verify Node + Express setup:
 
 ```bash
 npm init -y
