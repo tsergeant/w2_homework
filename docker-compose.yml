@@ -1,6 +1,27 @@
-# ────────────────────────────────
+# ────────────────────────────────────────────────────────────────
 #  Web Technologies 2 - Common Docker Setup
-# ────────────────────────────────
+#
+#  Quick summary of what this file accomplishes
+#
+#    * Defines two containers that work together
+#      - db: a PostgreSQL database
+#      - pgadmin: a web interface to manage it
+#    * They share a network so they can communicate.
+#    * A "container" is a disposible unit so, db and
+#      pgadmin each have volumes that map to your
+#      computer so their data persists even if they
+#      are destroyed.
+#    * The ports lines expose db and pgadmin to your computer.
+#      - db → localhost:5432
+#      - pgAdmin → localhost:5050
+#
+#  Commands you will want to use:
+#    * Launch both containers   : docker compose up -d
+#    * Shut down both containers: docker compose down -v
+#    * Work w/ db using CLI     : docker exec -it w2-db psql -U student -d web2db
+#    * Work w/ db using Web     : Visit: http://localhost:5050
+# ────────────────────────────────────────────────────────────────
+
 services:
   db:
     image: postgres:16

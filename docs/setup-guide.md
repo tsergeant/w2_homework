@@ -113,6 +113,7 @@ Applications automatically read these variables when running.
 Create a simple server in the hw01 folder to verify Node + Express setup:
 
 ```bash
+cd hw01
 npm init -y
 npm install express
 ```
@@ -120,8 +121,9 @@ npm install express
 Create `index.js`:
 
 ```js
-import express from "express";
+const express = require("express");
 const app = express();
+
 app.get("/", (req, res) => res.send("Server is running!"));
 app.listen(process.env.PORT || 3000, () => console.log("Server started."));
 ```
@@ -138,8 +140,8 @@ Then visit [http://localhost:3000](http://localhost:3000).
 
 | Action | Command |
 |--------|----------|
-| View running containers | `docker ps` |
-| View logs for a service | `docker logs webtech2-db` |
+| View running containers | `docker compose ps` |
+| View logs for a service | `docker compose logs db` |
 | Stop all containers | `docker compose down` |
 | Clean unused data | `docker system prune -a` |
 | Remove all volumes | `docker volume prune` |
@@ -156,7 +158,4 @@ If you encounter problems:
 - **Port already in use:** edit `docker-compose.yml` and change port mappings
 - **Permission errors:** run `sudo chown -R $USER:$USER .` on macOS/Linux
 
----
 
-✅ Once everything above is working, you’re ready to begin **Week 1: Server-Side JavaScript Fundamentals.**
-Happy coding!
