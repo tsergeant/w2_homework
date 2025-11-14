@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SayIt!</title>
+	<link href="/css/sayit.css" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Asul' rel='stylesheet' type='text/css'>
+	<script src="/js/sayit.js" defer></script>
+</head>
+<body>
+	<h1>Say It!&trade;</h1>
+	<h1>
+			<a class="button" href="/logout">Logout</a>
+			<a class="button" href="/login">Login</a>
+			<a class="button" href="/signup">Sign Up</a>
+	</h1>
+	<div class="grid_6">
+		<h2>What's Been Said ...</h2>
+		<div id="beensaid">
+			<section>
+				<span class="ts">2026-01-15 12:05:00</span>
+				<span class="topic">Cool Stuff</span>
+				<span class="who">Mary-meister says</span>
+				Welcome Back!
+				<hr>
+			</section>
+			<section>
+				<span class="ts">2026-01-12 21:13:27</span>
+				<span class="topic">Fun Stuff</span>
+				<span class="who">freddy says</span>
+				Wwatching TV is fun!
+				<hr>
+			</section>
+			<section>
+				<span class="ts">2026-01-01 00:00:00</span>
+				<span class="topic">Cool Stuff</span>
+				<span class="who">Mary-meister says</span>
+				Happy New Year!
+				<hr>
+			</section>
+		</div>
+		<button class="big-button" id="update">Update!</button>
+	</div>
+
+	<div class="grid_6">
+		<h2>Say It Yourself ...</h2>
+		<div id="sayit">
+			<form method="post" action="./index.php">
+				<label>Topic:</label>
+				<select name="existing-topic">
+					<option>Cool Stuff</option>
+					<option>Fun Stuff</option>
+				</select>
+				or
+				<input type="text" name="new-topic" value=""/>
+				<div class="error"></div>
+				<div class="clear"></div>
+				<label>Message (limit 500 chars)</label><br/>
+				<textarea name="message"></textarea>
+				<input type="hidden" name="csrftok" value="hello">
+				<button class="big-button">Say It!</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
