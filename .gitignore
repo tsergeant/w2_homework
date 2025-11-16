@@ -42,8 +42,6 @@ tmp/
 Thumbs.db
 
 # IDE / editor metadata
-.vscode/
-.idea/
 *.swp
 
 # Coverage / testing

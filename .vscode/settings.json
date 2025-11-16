@@ -1,0 +1,46 @@
+{
+	"extensions.recommendations": [
+		"dbaeumer.vscode-eslint",
+		"esbenp.prettier-vscode",
+		"ms-azuretools.vscode-docker",
+		"humao.rest-client",
+		"Prisma.prisma"
+	],
+
+	"editor.formatOnSave": true,
+	"editor.tabSize": 2,
+	"editor.insertSpaces": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"files.trimTrailingWhitespace": true,
+	"files.insertFinalNewline": true,
+	"files.eol": "\n",
+
+	"github.copilot.enable": {
+		"*": false,
+		"plaintext": false,
+		"markdown": false,
+		"scminput": false
+	},
+	"github.copilot.inlineSuggest.enable": false,
+	"github.copilot.editor.enableAutoCompletions": false,
+	"github.copilot.chat.enabled": false,
+
+	"editor.inlineSuggest.enabled": false,
+	"intellicode.completionsEnabled": false,
+
+	"eslint.format.enable": true,
+	"eslint.lintTask.enable": true,
+	"eslint.alwaysShowStatus": true,
+
+	"terminal.integrated.defaultProfile.windows": "PowerShell",
+	"terminal.integrated.defaultProfile.linux": "bash",
+	"terminal.integrated.defaultProfile.osx": "bash",
+
+	"explorer.confirmDelete": false,
+	"files.exclude": {
+		"node_modules": true,
+		"dist": true,
+		".git": true
+	}
+}
+
