@@ -1,3 +1,10 @@
+--
+-- NOTE: To execute this script and create a database for the SayIt application, run this command:
+--
+-- docker exec -i dbcontainer psql -U student -d mydb < schema.sql
+--
+
+CREATE SCHEMA IF NOT EXISTS sayit;
 SET SEARCH_PATH TO sayit;
 
 CREATE TABLE sayit_users (

@@ -18,29 +18,29 @@
 #  Commands you will want to use:
 #    * Launch both containers   : docker compose up -d
 #    * Shut down both containers: docker compose down -v
-#    * Work w/ db using CLI     : docker exec -it w2-db psql -U student -d web2db
+#    * Work w/ db using CLI     : docker exec -it dbcontainer psql -U student -d mydb
 #    * Work w/ db using Web     : Visit: http://localhost:5050
 # ────────────────────────────────────────────────────────────────
 
 services:
   db:
     image: postgres:16
-    container_name: w2-db
+    container_name: dbcontainer
     restart: unless-stopped
     environment:
       POSTGRES_USER: student
       POSTGRES_PASSWORD: devpass
-      POSTGRES_DB: web2db
+      POSTGRES_DB: mydb
     ports:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:
-      - w2-net
+      - db-net
 
   pgadmin:
     image: dpage/pgadmin4
-    container_name: w2-pgadmin
+    container_name: pgadmincontainer
     restart: unless-stopped
     depends_on:
       - db
@@ -50,15 +50,19 @@ services:
     ports:
       - "5050:80"
     networks:
-      - w2-net
-    # Optional: persistent config storage
+      - db-net
     volumes:
       - pgadmin-data:/var/lib/pgadmin
 
 networks:
-  w2-net:
+  db-net:
+    external: true
 
 volumes:
   pgdata:
+    external: true
   pgadmin-data:
+    external: true
+  mongodata:
+    external: true
 

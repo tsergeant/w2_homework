@@ -48,6 +48,12 @@ Open a command-line interface and navigate to your repository.
 From the root of your course repository, run:
 
 ```bash
+docker network create db-net
+docker volume create pgdata
+docker volume create pgadmin-data
+```
+
+```bash
 docker compose up -d
 ```
 
@@ -77,14 +83,18 @@ Use pgAdmin or `psql` to test your connection.
    - Email: `student@example.com`
    - Password: `admin`
 3. Create a new server connection:
+   - Click on Add New Server in Quick Links on dashboard:
+   - **Name:** `Homework`
+   - Click on Connection Tab:
    - **Host:** `db`
    - **Port:** `5432`
    - **Username:** `student`
    - **Password:** `devpass`
+   - **Save** 
 
 ### Option 2: Using psql CLI
 ```bash
-docker exec -it w2-db psql -U student -d web2db
+docker exec -it dbconnection psql -U student -d mydb
 ```
 
 Then run:
