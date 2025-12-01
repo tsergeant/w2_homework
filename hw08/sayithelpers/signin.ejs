@@ -1,0 +1,29 @@
+<%- include("partials/header") %>
+
+<main class="grid_6 signup-page">
+  <h2>LSign In To Your Account</h2>
+
+  <% if (errors && errors.length > 0) { %>
+  <div class="error">
+    <% errors.forEach(err => { %>
+    <p><%= err.msg %></p>
+    <% }) %>
+  </div>
+  <% } %>
+
+  <form class="authpage" method="post" action="/signin">
+    <label for="email">Email</label><br />
+    <input type="email" id="email" name="email" value="<%= formData?.email || '' %>" required />
+    <br /><br />
+
+    <label for="password">Password</label><br />
+    <input type="password" id="password" name="password" required />
+    <br /><br />
+
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+
+    <button class="big-button">Sign In</button>
+  </form>
+</main>
+
+<%- include("partials/footer") %>
